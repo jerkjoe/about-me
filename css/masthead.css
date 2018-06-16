@@ -50,13 +50,14 @@
 .container {
   margin: 0 auto;
   max-width: 18rem;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
 .masthead > .container > h1 {
   font-size: 1rem;
   color: #ffffff;
+  height: 1rem;
 }
 
 .masthead > .container > p {
@@ -65,4 +66,13 @@
   color: #eeeeee;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.4rem;
+}
+
+@media (max-width: 480px){
+  .masthead > .container > h1{
+    font-size: .58rem;
+  }
+  .masthead > .container > p{
+    font-weight: .32rem;
+  }
 }

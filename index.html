@@ -12,7 +12,6 @@
 
 <body>
   <style>
-
     /* skills */
 
     .clearfix::after {
@@ -23,32 +22,145 @@
 
     .skills {
       width: 100%;
+      background-image: url('./static/bg5.jpeg');
+      background-size: cover;
+      z-index: 1;
+      position: relative;
+      color: #ffffff;
     }
-    .skills>.container>h2{
+    .skills::after{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width:100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background-color: rgba(0, 0, 0, .7);
+    }
+
+    .container>h2 {
       font-size: .8rem;
+      padding: 1rem;
     }
+
     ul>.skill-item {
+      padding: .4rem 0;
       float: left;
       width: 50%;
     }
-    ul>.skill-item>*{
+
+    ul>.skill-item>* {
       margin: 0 auto;
       width: 90%;
     }
-    ul>.skill-item>.skill-item-title{
+
+    ul>.skill-item>.skill-item-title {
       font-size: .32rem;
       font-weight: 600;
       line-height: .36rem;
       height: .36rem;
       padding: .1rem;
     }
-    .progressBar{
+
+    ul>.skill-item>.progressBar {
       border: 1px solid #e3e3e3;
+      overflow: hidden;
+      margin-top: .2rem;
     }
-    .progressBar>.progress{
+
+    .html {
+      width: 90%;
+    }
+
+    .js {
+      width: 75%;
+    }
+
+    .css {
+      width: 85%;
+    }
+
+    .vue {
+      width: 60%;
+    }
+
+    .other {
+      width: 70%;
+    }
+
+    .progressBar>.progress {
       height: .2rem;
-      width: 80%;
-      background: linear-gradient(to right, #10817b 0%, #0cac94 50%, #66f5ed 100%);
+      background: linear-gradient(to right, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
+      transform: translateX(-100%);
+      transition: all 1s;
+    }
+
+    ul.slide-in .progressBar>.progress {
+      transform: translateX(0);
+    }
+
+    ul>.skill-item {
+      display: block;
+      height: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      ul>.skill-item {
+        float: left;
+        width: 100%;
+      }
+    }
+
+    /* about */
+
+    .about .detail {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap
+    }
+
+    .detail>div {
+      flex: 1;
+      min-width: 5rem;
+      margin: .4rem;
+      padding: .2rem;
+      border: 1px solid #e3e3e3;
+      height: 5rem;
+    }
+
+    .detail>div:hover {
+      box-shadow: 0 0 10px 0 #90b1b6;
+      transform: translateY(.1rem);
+    }
+
+    .detail h3 {
+      font-size: .4rem;
+      padding: .2rem 0;
+      font-weight: bolder;
+    }
+
+    .detail .description {
+      padding: .2rem 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detail .description>* {
+      padding: .1rem .8rem;
+    }
+
+    .detail .description>p:first-child {
+      display: flex;
+      font-size: .32rem;
+      font-weight: 600;
+    }
+
+    .detail .description>p>span {
+      padding-right: .6rem;
     }
   </style>
   <header class="navbar-container">
@@ -75,52 +187,146 @@
 
   <div class="masthead">
     <div class="container">
-      <h1>Hi there! I am Joseph.</h1>
-      <p>I am a problem solver and I love coding! I'm a lover of all things related to technology & sports, and a real big fan
-        of basketball - when I'm not in front of a screen, you can find me on the court.</p>
+      <h1 id="hello"></h1>
+      <p>I am a problem solver and I love coding! I'm a lover of awesome technology, and a real big fan of basketball - when
+        I'm not in front of a screen, you can find me on the court.</p>
     </div>
   </div>
-  <div class="skills">
+  <div class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="detail">
+        <div class="education">
+          <h3>Education</h3>
+          <div class="description">
+            <p>
+              <span>Computer Enigineering</span>
+              <span>BASc</span>
+            </p>
+            <p> Simon Fraser University</p>
+            <p> - - 2011.9 - 2017.6</p>
+          </div>
+        </div>
+        <div class="work">
+          <h3>Work Experience</h3>
+          <div class="description">
+            <p>
+              <span>QA Engineer</span>
+              <span></span>
+            </p>
+            <p> Drive Digital</p>
+            <p> - - 2017.8 - Present</p>
+          </div>
+          <div class="description">
+              <p>
+                <span>Product Development Specialist</span>
+                <span></span>
+              </p>
+              <p>BlackBerry Ltd.</p>
+              <p> - - 2014.8 - 2015.8</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="skills" id="skills">
     <div class="container">
       <h2>Skills</h2>
       <ul class="clearfix">
         <li class="skill-item">
           <h3 class="skill-item-title">HTML5</h3>
           <div class="progressBar">
-            <div class="progress" style="width: 85%"></div>
+            <div class="progress html"></div>
           </div>
         </li>
         <li class="skill-item">
           <h3 class="skill-item-title">CSS3</h3>
           <div class="progressBar">
-            <div class="progress"></div>
+            <div class="progress css"></div>
           </div>
         </li>
         <li class="skill-item">
           <h3 class="skill-item-title">JavaScript</h3>
           <div class="progressBar">
-            <div class="progress"></div>
+            <div class="progress js"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">jQuery</h3>
+          <div class="progressBar">
+            <div class="progress vue"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">Vue.js</h3>
+          <div class="progressBar">
+            <div class="progress vue"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">Git | Webpack | Command Line</h3>
+          <div class="progressBar">
+            <div class="progress other"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">Photoshop</h3>
+          <div class="progressBar">
+            <div class="progress other"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">Willingness to Learn</h3>
+          <div class="progressBar">
+            <div class="progress" width="100%"></div>
           </div>
         </li>
       </ul>
     </div>
   </div>
   <script>
+    // header js and skills animation
     const header = document.querySelector('header')
     const headerWrapper = document.querySelector('.navbar-container')
     const navbar = document.querySelector('.nav-bar')
-    document.addEventListener('scroll',function(){
+    document.addEventListener('scroll', function () {
       if (window.scrollY > 90) {
-        // navbar.classList.add('white-bg')
         headerWrapper.classList.add('white-bg')
       }
       else {
-        // navbar.classList.remove('white-bg')
         headerWrapper.classList.remove('white-bg')
-
+      }
+      if (window.scrollY + window.innerHeight - 200 > skills.offsetTop) {
+        skills.querySelector('ul').classList.add('slide-in')
+      }
+      else {
+        skills.querySelector('ul').classList.remove('slide-in')
       }
     })
-  </script>
+
+    // masthead js
+    const hello = document.getElementById('hello')
+    typeEffect(hello)
+
+    function typeEffect(element) {
+      var greeting = ['Hi there! I am Joseph. ', 'A Web Developer. ', 'A Passionate Learner. ', 'Nice to have you here! ']
+      var greetingCounter = 0
+      let index = 0
+      var innerText = ''
+      setInterval(function () {
+        greetingCounter++
+        if (greetingCounter > greeting[index].length) {
+          index = (index + 1) % greeting.length
+          greetingCounter = 0
+        }
+        element.textContent = greeting[index].substring(0, greetingCounter)
+      }, 100)
+    }
+    const skills = document.getElementById('skills')
+
+    </script>
 </body>
 
 </html>
