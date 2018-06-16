@@ -70,7 +70,9 @@
 .white-bg a{
   color: #000000;
 }
-
+.mobile{
+  display: none;
+}
 @media (max-width: 480px) {
   .nav-items{
     display: none;

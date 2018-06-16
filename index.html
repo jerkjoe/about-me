@@ -5,194 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joseph Jin | Front-End Web Developer</title>
-  <link rel="stylesheet" href="./css/reset.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css"> <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/masthead.css">
+  <link rel="stylesheet" href="./css/skills.css">
+  <link rel="stylesheet" href="./css/about.css">
+  <link rel="stylesheet" href="./css/works.css">
+  <link rel="stylesheet" href="./css/contact-footer.css">
 </head>
 
 <body>
-  <style>
-    /* skills */
-
-    .clearfix::after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-
-    .skills {
-      width: 100%;
-      background-image: url('./static/bg5.jpeg');
-      background-size: cover;
-      z-index: 1;
-      position: relative;
-      color: #ffffff;
-    }
-    .skills::after{
-      content: '';
-      display: block;
-      position: absolute;
-      height: 100%;
-      width:100%;
-      left: 0;
-      top: 0;
-      z-index: -1;
-      background-color: rgba(0, 0, 0, .7);
-    }
-
-    .container>h2 {
-      font-size: .8rem;
-      padding: 1rem;
-    }
-
-    ul>.skill-item {
-      padding: .4rem 0;
-      float: left;
-      width: 50%;
-    }
-
-    ul>.skill-item>* {
-      margin: 0 auto;
-      width: 90%;
-    }
-
-    ul>.skill-item>.skill-item-title {
-      font-size: .32rem;
-      font-weight: 600;
-      line-height: .36rem;
-      height: .36rem;
-      padding: .1rem;
-    }
-
-    ul>.skill-item>.progressBar {
-      border: 1px solid #e3e3e3;
-      overflow: hidden;
-      margin-top: .2rem;
-    }
-
-    .html {
-      width: 90%;
-    }
-
-    .js {
-      width: 75%;
-    }
-
-    .css {
-      width: 85%;
-    }
-
-    .vue {
-      width: 60%;
-    }
-
-    .other {
-      width: 70%;
-    }
-
-    .progressBar>.progress {
-      height: .2rem;
-      background: linear-gradient(to right, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
-      transform: translateX(-100%);
-      transition: all 1s;
-    }
-
-    ul.slide-in .progressBar>.progress {
-      transform: translateX(0);
-    }
-
-    ul>.skill-item {
-      display: block;
-      height: 1rem;
-    }
-
-    @media (max-width: 960px) {
-      ul>.skill-item {
-        float: left;
-        width: 100%;
-      }
-    }
-
-    /* about */
-
-    .about .detail {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap
-    }
-
-    .detail>div {
-      flex: 1;
-      min-width: 5rem;
-      margin: .4rem;
-      padding: .2rem;
-      border: 1px solid #e3e3e3;
-      height: 5rem;
-    }
-
-    .detail>div:hover {
-      box-shadow: 0 0 10px 0 #90b1b6;
-      transform: translateY(.1rem);
-    }
-
-    .detail h3 {
-      font-size: .4rem;
-      padding: .2rem 0;
-      font-weight: bolder;
-    }
-
-    .detail .description {
-      padding: .2rem 0;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .detail .description>* {
-      padding: .1rem .8rem;
-    }
-
-    .detail .description>p:first-child {
-      display: flex;
-      font-size: .32rem;
-      font-weight: 600;
-    }
-
-    .detail .description>p>span {
-      padding-right: .6rem;
-    }
-  </style>
+  <a href="#" id="back-to-top">TOP</a>
   <header class="navbar-container">
     <div class="nav-bar">
       <div class="nav-logo">
-        <a href="#">Joseph Jin</a>
+        <a href="/">Joseph Jin</a>
       </div>
       <ul class="nav-items">
         <li class="nav-item">
-          <a href="#">Home</a>
+          <a href="#home">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#">About</a>
+          <a href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a href="#">Work</a>
+          <a href="#skills">Skills</a>
         </li>
         <li class="nav-item">
-          <a href="#">Contact</a>
+          <a href="#works">Works</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </div>
   </header>
 
-  <div class="masthead">
+  <div class="masthead" id="home">
     <div class="container">
       <h1 id="hello"></h1>
       <p>I am a problem solver and I love coding! I'm a lover of awesome technology, and a real big fan of basketball - when
         I'm not in front of a screen, you can find me on the court.</p>
     </div>
   </div>
-  <div class="about">
+  <div class="about" id="about">
     <div class="container">
       <h2>About Me</h2>
       <div class="detail">
@@ -206,6 +62,14 @@
             <p> Simon Fraser University</p>
             <p> - - 2011.9 - 2017.6</p>
           </div>
+          <div class="description">
+            <p>
+              <span>Front-End Development</span>
+              <span>Certificate</span>
+            </p>
+            <p>freeCodeCamp</p>
+            <p> - - 2017</p>
+          </div>
         </div>
         <div class="work">
           <h3>Work Experience</h3>
@@ -218,19 +82,17 @@
             <p> - - 2017.8 - Present</p>
           </div>
           <div class="description">
-              <p>
-                <span>Product Development Specialist</span>
-                <span></span>
-              </p>
-              <p>BlackBerry Ltd.</p>
-              <p> - - 2014.8 - 2015.8</p>
-            </div>
+            <p>
+              <span>Product Development Specialist</span>
+              <span></span>
+            </p>
+            <p>BlackBerry Ltd.</p>
+            <p> - - 2014.8 - 2015.8</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
   <div class="skills" id="skills">
     <div class="container">
       <h2>Skills</h2>
@@ -286,9 +148,91 @@
       </ul>
     </div>
   </div>
+  <div class="works" id="works">
+    <div class="container">
+      <h2>Works</h2>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="static/1.jpeg" alt="1">
+            <p>Vue.js SPA</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="static/2.png" alt="2">
+            <p>Data Visualization with SVG & Canvas</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="static/3.png" alt="3">
+            <p>Chinese Forum Site (Front-End)</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="static/4.png" alt="4">
+            <p>Massage Center (WordPress)</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="static/5.png" alt="5">
+            <p>Navigation Site</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="static/6.png" alt="6">
+            <p>Static Page with Flex Layout</p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <div class="more-info">
+        If you want to view more projects, please visit my GitHub repos:
+        <a target='_blank' href="https://github.com/jerkjoe">https://github.com/jerkjoe</a>
+      </div>
+    </div>
+  </div>
+  <style>
+
+  </style>
+  <div class="contact" id="contact">
+    <div class="container">
+      <h2>Say Hi ~</h2>
+      <div>
+        Thank you for visiting and I hope you enjoy this little scroll trip. Feel free to shoot me an email:
+      </div>
+      <div class="contact-info">
+        <div class="email">
+          Email:
+          <a href="mailto:jinyuhui61@hotmail.com">jinyuhui61@hotmail.com</a>
+        </div>
+        <div class="github">
+          GitHub:
+          <a target='_blank' href="https://github.com/jerkjoe">https://github.com/jerkjoe</a>
+        </div>
+        <div class="message">
+          Or leave a message here:
+        </div>
+      </div>
+      <div class="message-board">
+        <form id="comments">
+          <input type="text" name="userName" id="userName" placeholder="Name">
+          <input type="text" name="comment" id="comment" placeholder="Message">
+          <input type="submit" value="Submit">
+        </form>
+        <ol id="savedComments">
+        </ol>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+        &copy; 2018 Joseph Jin. All Rights Reserved
+    </div>
+  </footer>
+  <!-- script -->
+  <script src="//cdn1.lncld.net/static/js/3.6.4/av-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
   <script>
     // header js and skills animation
     const header = document.querySelector('header')
+    const skills = document.getElementById('skills')
     const headerWrapper = document.querySelector('.navbar-container')
     const navbar = document.querySelector('.nav-bar')
     document.addEventListener('scroll', function () {
@@ -306,12 +250,14 @@
       }
     })
 
+
+
     // masthead js
     const hello = document.getElementById('hello')
     typeEffect(hello)
 
     function typeEffect(element) {
-      var greeting = ['Hi there! I am Joseph. ', 'A Web Developer. ', 'A Passionate Learner. ', 'Nice to have you here! ']
+      var greeting = ['Hi there! I am Joseph. ', 'A Web Developer. ', 'A Passionate Learner. ', 'Nice to meet you! ']
       var greetingCounter = 0
       let index = 0
       var innerText = ''
@@ -324,9 +270,107 @@
         element.textContent = greeting[index].substring(0, greetingCounter)
       }, 100)
     }
-    const skills = document.getElementById('skills')
 
-    </script>
+    var anchorLinks = document.querySelectorAll(".nav-item>a")
+    console.log(anchorLinks);
+
+    anchorLinks.forEach(function (e) {
+      var targetId = e.href.split('#')[e.href.split('#').length - 1]
+      var target = document.getElementById(targetId)
+
+      e.addEventListener('click', function (event) {
+        if (window.scrollTo) {
+          event.preventDefault();
+          window.scrollTo({ "behavior": "smooth", "top": target.offsetTop });
+        }
+      })
+    })
+
+    // <!-- swiper -->
+    var mySwiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      loop: true,
+
+      // pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      autoplay: {
+        delay: 4000,
+      },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    })
+
+    const APP_ID = 'XbpmBbqWlM1facxh938Bu6ml-MdYXbMMI'
+    const APP_KEY = '2eROdo9GLACuxInoNaluVeB1'
+
+    AV.init({
+      appId: APP_ID,
+      appKey: APP_KEY
+    })
+
+    var commentsForm = document.getElementById('comments')
+
+    commentsForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+      console.log("Submit")
+      var userName = document.getElementById("userName").value
+      var comment = document.getElementById("comment").value
+      if (userName && comment) {
+        commentUpload(userName, comment)
+      }
+      else if (userName) {
+        alert("Comment field cannot be empty!")
+      }
+      else {
+        alert("Username field cannot be empty!")
+      }
+    })
+
+    var commentList = document.getElementById("savedComments")
+    var savedComments = new AV.Query("Comments")
+    savedComments.find().then(function (comments) {
+      comments.forEach((e) => {
+        var li = document.createElement('li')
+        var user = document.createElement('span')
+        var comment = document.createElement('span')
+        user.innerText = 'User: ' + e.attributes.user
+        comment.innerText = 'Message:' + e.attributes.comment
+        li.appendChild(user)
+        li.appendChild(comment)
+        commentList.appendChild(li)
+      })
+    })
+
+
+    function commentUpload(userName, comment) {
+      var CommentsObject = AV.Object.extend('Comments')
+      var commentsObject = new CommentsObject()
+      commentsObject.save({
+        user: userName,
+        comment: comment
+      }).then(function () {
+        console.log("Succuess")
+
+        var li = document.createElement('li')
+        var user = document.createElement('span')
+        var comment = document.createElement('span')
+        user.innerText = commentsObject.attributes.user
+        comment.innerText = commentsObject.attributes.comment
+        li.appendChild(user)
+        li.appendChild(comment)
+        commentList.appendChild(li)
+      })
+    }
+  </script>
 </body>
 
 </html>

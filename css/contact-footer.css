@@ -1,0 +1,86 @@
+.contact {
+  z-index: 1;
+  background-image: url('./static/skill-bg.jpeg');
+  background-size: cover;
+  position: relative;
+  color: #ffffff;
+}
+
+.contact::before {
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  background-color: rgba(0, 0, 0, .8)
+}
+
+.contact-info{
+  text-align: left;
+  margin: .2rem auto;
+  width: 5rem;
+  padding: .4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.message-board{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.contact-info>*{
+  font-size: .32rem;
+  line-height: .6rem;
+  height: .6rem;
+}
+.contact-info a{
+  color: #e4bdbd;
+  transition: all .3s;
+}
+.contact-info a:hover{
+  color: #ffdede;
+}
+form>input{
+  width: 90%;
+  margin: 0 auto;
+}
+form>input[type="submit"]{
+  width: 2rem;
+  margin: 0 auto;
+}
+form{
+  padding-top: .2rem;
+  display: flex;
+  height: 1.8rem;
+  width: 80%;
+  min-width: 6rem;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-direction: column;
+}
+ol{
+  height: 4rem;
+  overflow: auto;
+}
+ol>li{
+  display: flex;
+  padding: .2rem .6rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+ol>li>span{
+  width: 4rem;
+  color: #070707;
+  text-align: left;
+}
+
+/* foooter */
+footer{
+  border-top: .04rem solid #ffffff; 
+  height: 2rem;
+  width: 100%;
+  color: #eeeeee;
+  background-color: #070707;
+}
