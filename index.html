@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joseph Jin | Front-End Web Developer</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/masthead.css">
+</head>
+
+<body>
+  <style>
+
+    /* skills */
+
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .skills {
+      width: 100%;
+    }
+    .skills>.container>h2{
+      font-size: .8rem;
+    }
+    ul>.skill-item {
+      float: left;
+      width: 50%;
+    }
+    ul>.skill-item>*{
+      margin: 0 auto;
+      width: 90%;
+    }
+    ul>.skill-item>.skill-item-title{
+      font-size: .32rem;
+      font-weight: 600;
+      line-height: .36rem;
+      height: .36rem;
+      padding: .1rem;
+    }
+    .progressBar{
+      border: 1px solid #e3e3e3;
+    }
+    .progressBar>.progress{
+      height: .2rem;
+      width: 80%;
+      background: linear-gradient(to right, #10817b 0%, #0cac94 50%, #66f5ed 100%);
+    }
+  </style>
+  <header class="navbar-container">
+    <div class="nav-bar">
+      <div class="nav-logo">
+        <a href="#">Joseph Jin</a>
+      </div>
+      <ul class="nav-items">
+        <li class="nav-item">
+          <a href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Work</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="masthead">
+    <div class="container">
+      <h1>Hi there! I am Joseph.</h1>
+      <p>I am a problem solver and I love coding! I'm a lover of all things related to technology & sports, and a real big fan
+        of basketball - when I'm not in front of a screen, you can find me on the court.</p>
+    </div>
+  </div>
+  <div class="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="clearfix">
+        <li class="skill-item">
+          <h3 class="skill-item-title">HTML5</h3>
+          <div class="progressBar">
+            <div class="progress" style="width: 85%"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">CSS3</h3>
+          <div class="progressBar">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li class="skill-item">
+          <h3 class="skill-item-title">JavaScript</h3>
+          <div class="progressBar">
+            <div class="progress"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const header = document.querySelector('header')
+    const headerWrapper = document.querySelector('.navbar-container')
+    const navbar = document.querySelector('.nav-bar')
+    document.addEventListener('scroll',function(){
+      if (window.scrollY > 90) {
+        // navbar.classList.add('white-bg')
+        headerWrapper.classList.add('white-bg')
+      }
+      else {
+        // navbar.classList.remove('white-bg')
+        headerWrapper.classList.remove('white-bg')
+
+      }
+    })
+  </script>
+</body>
+
+</html>
