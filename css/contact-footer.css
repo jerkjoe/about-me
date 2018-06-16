@@ -28,6 +28,9 @@
   flex-direction: column;
 }
 .message-board{
+  border-radius: .4rem;
+  padding-top: .4rem;
+  box-shadow: 0 0 .36rem #ffffff;
   background-color: rgba(255, 255, 255, 0.7);
 }
 .contact-info>*{
@@ -44,14 +47,16 @@
 }
 form>input{
   width: 90%;
+  border-radius: .32rem;
   margin: 0 auto;
+  padding: 0 .4rem
 }
 form>input[type="submit"]{
   width: 2rem;
   margin: 0 auto;
 }
 form{
-  padding-top: .2rem;
+  padding: .2rem 0;
   display: flex;
   height: 1.8rem;
   width: 80%;
@@ -63,12 +68,16 @@ form{
 ol{
   height: 4rem;
   overflow: auto;
+  width: 90%;
+  margin: 0 auto;
 }
+
 ol>li{
   display: flex;
   padding: .2rem .6rem;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  background-color: #ffffff;
 }
 ol>li>span{
   width: 4rem;
