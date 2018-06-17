@@ -1,6 +1,6 @@
 .contact {
   z-index: 1;
-  background-image: url('./static/skill-bg.jpeg');
+  background-image: url('../static/skill-bg.jpeg');
   background-size: cover;
   position: relative;
   color: #ffffff;
@@ -29,7 +29,7 @@
 }
 .message-board{
   border-radius: .4rem;
-  padding-top: .4rem;
+  padding: .4rem 0;
   box-shadow: 0 0 .36rem #ffffff;
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -70,19 +70,26 @@ ol{
   overflow: auto;
   width: 90%;
   margin: 0 auto;
+  border-radius: .4rem;
+  background: #ffffff;
 }
 
 ol>li{
+  margin: .2rem auto 0;
+  width: 90%;
+  border-bottom: .02rem solid #666;
   display: flex;
-  padding: .2rem .6rem;
+  padding: 0 .6rem;
   justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: #ffffff;
 }
 ol>li>span{
+  line-height: .36rem;
   width: 4rem;
   color: #070707;
   text-align: left;
+  padding: .2rem 0;
 }
 
 /* foooter */
