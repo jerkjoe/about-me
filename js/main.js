@@ -1,3 +1,6 @@
+window.addEventListener('load', function(){
+  document.querySelector('.loading').classList.add('hide');
+})
 // header js and skills animation
 const header = document.querySelector('header')
 const skills = document.getElementById('skills')
