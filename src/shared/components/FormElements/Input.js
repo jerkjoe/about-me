@@ -20,11 +20,7 @@ const inputReducer = (state, action) => {
             return state
     }
 }
-const initialState = {
-    value: '',
-    isValid: false,
-    isTouched: false
-}
+
 
 const Input = ({
     id,
@@ -35,8 +31,15 @@ const Input = ({
     type,
     errorText,
     validators,
-    onInput
+    onInput,
+    valid,
+    value: val
 }) => {
+    const initialState = {
+        value: val || '',
+        isValid: valid || false,
+        isTouched: false
+    }
     const [inputState, dispatch] = useReducer(inputReducer, initialState)
     const {value, isValid} = inputState
     useEffect(() => {

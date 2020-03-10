@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import './PlaceForm.css';
 import Input from '../../shared/components/FormElements/Input'
@@ -6,40 +6,11 @@ import Input from '../../shared/components/FormElements/Input'
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators'
 
 import Button from '../../shared/components/FormElements/Button'
-const formReducer = (state, { type, isValid, inputId, value }) => {
-    switch (type) {
-        case 'INPUT_CHANGE':
-            let formIsValid = true
-            for (let key in state.inputs) {
-                if (key === inputId) {
-                    formIsValid = formIsValid && isValid
-                } else {
-                    formIsValid = formIsValid && state.inputs[inputId].isValid
-                }
-            }
-            console.log(inputId)
-            console.log(value)
-            console.log(isValid)
-            return {
-                ...state,
-                inputs: {
-                    ...state.inputs,
-                    [inputId]: {
-                        value,
-                        isValid
-                    }
-                },
-                isValid: formIsValid
-            }
-            break;
 
-        default:
-            return state
-    }
-}
-const initialState = {
-    isValid: false,
-    inputs: {
+import { useForm } from '../../shared/hooks/form-hook'
+
+const NewPlace = props => {
+    const [formState, inputHandler] = useForm({
         title: {
             value: '',
             isValid: false
@@ -52,18 +23,8 @@ const initialState = {
             value: '',
             isValid: false
         }
-    },
-}
-const NewPlace = props => {
-    const [formState, dispatch] = useReducer(formReducer, initialState)
-    const inputHandler = useCallback((id, value, isValid) => {
-        dispatch({
-            type: 'INPUT_CHANGE',
-            value,
-            inputId: id,
-            isValid
-        })
-    }, [])
+    }, false)
+
 
     const placeSubmitHandler = event => {
         event.preventDefault();
