@@ -1,5 +1,5 @@
 import { useCallback, useReducer } from 'react'
-const formReducer = (state, { type, isValid, inputId, value }) => {
+const formReducer = (state, { type, isValid, inputId, value, inputs }) => {
     switch (type) {
         case 'INPUT_CHANGE':
             let formIsValid = true
@@ -21,8 +21,12 @@ const formReducer = (state, { type, isValid, inputId, value }) => {
                 },
                 isValid: formIsValid
             }
-            break;
-
+        case 'SET_DATA':
+            return {
+                ...state,
+                inputs: inputs,
+                isValid: isValid
+            }
         default:
             return state
     }
@@ -42,5 +46,12 @@ export const useForm = (initialInputs, initialFormValidity) => {
         })
     }, [])
     
-    return [formState, inputHandler]
+    const setFormData = useCallback((inputData, formValidity) => {
+        dispatch({
+            type: 'SET_DATA',
+            inputs: inputData,
+            formIsValid: formValidity
+        })
+    })
+    return [formState, inputHandler, setFormData]
 }

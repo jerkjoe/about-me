@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../../shared/components/FormElements/Button'
 import Input from '../../shared/components/FormElements/Input'
@@ -6,6 +6,8 @@ import './PlaceForm.css';
 import { useParams } from 'react-router-dom'
 import { useForm } from '../../shared/hooks/form-hook'
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators'
+import Card from '../../shared/components/UIElements/Card';
+
 const DUMMY_PLACES = [
     {
         id: 'p1',
@@ -35,28 +37,61 @@ const DUMMY_PLACES = [
     }
 ];
 const UpdatePlace = props => {
-
+    const [isLoading, setIsLoading] = useState(true);
     const placeId = useParams().placeId
-    const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId)
-
-    const [formState, inputHandler] = useForm({
+    const [formState, inputHandler, setFormData] = useForm({
         title: {
-            value: identifiedPlace.title,
-            isValid: true
+            value: '',
+            isValid: false
         },
         description: {
-            value: identifiedPlace.description,
-            isValid: true
+            value: '',
+            isValid: false
         }
-    }, true)
+    }, false)
+    const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId)
+
+
+    useEffect(() => {
+        if (identifiedPlace) {
+            setFormData(
+                {
+                    title: {
+                        value: identifiedPlace.title,
+                        isValid: true
+                    },
+                    description: {
+                        value: identifiedPlace.description,
+                        isValid: true
+                    }
+                },
+                true
+            );
+        }
+        setIsLoading(false);
+    }, [setFormData, identifiedPlace]);
+
     const placeUpdateSubmitHandler = event => {
         event.preventDefault();
         console.log(formState.inputs);
-      };
+    };
+
     if (!identifiedPlace) {
-        return <div className="center">
-            <h2>Could not find place!</h2>
-        </div>
+        return (
+            <div className="center">
+                <Card>
+                    <h2>Could not find place!</h2>
+                </Card>
+            </div>
+        );
+    }
+
+    if (isLoading) {
+        return (
+            <div className="center">
+                <h2>Loading...</h2>
+            </div>
+        );
     }
     return (
         <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
@@ -69,7 +104,7 @@ const UpdatePlace = props => {
                     VALIDATOR_REQUIRE()
                 ]}
                 errorText="PLease enter a valid title"
-                onInput={() => { }}
+                onInput={inputHandler}
                 value={formState.inputs.title.value}
                 valid={formState.inputs.title.isValid}
             ></Input>
@@ -81,7 +116,7 @@ const UpdatePlace = props => {
                     VALIDATOR_MINLENGTH(5)
                 ]}
                 errorText="PLease enter a valid description (min. 5 characters)"
-                onInput={() => { }}
+                onInput={inputHandler}
                 value={formState.inputs.description.value}
                 valid={formState.inputs.description.isValid}
             ></Input>
