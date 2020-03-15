@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 import Card from '../../shared/components/UIElements/Card'
 import './PlaceItem.css'
@@ -7,11 +7,22 @@ import Modal from '../../shared/components/UIElements/Modal'
 import Button from '../../shared/components/FormElements/Button'
 
 import Map from '../../shared/components/UIElements/Map'
+import { AuthContext } from '../../shared/components/context/auth-context'
 const PlaceItem = ({ id, description, image, title, address, creator, coordinates }) => {
     const [showMap, setShowMap] = useState(false)
     const openMapHandler = () => setShowMap(true)
     const closeMapHandler = () => setShowMap(false)
-
+    const [showConfirmModal, setShowConfirmModal] = useState(false)
+    const showDeleteWarningHandler = () => {
+        setShowConfirmModal(true)
+    }
+    const cancelDeleteHandler = () => {
+        setShowConfirmModal(false)
+    }
+    const confirmDeleteHandler = () => {
+        console.log('Deleting')
+    }
+    const auth = useContext(AuthContext)
     return (
         <Fragment>
             <Modal
@@ -27,6 +38,16 @@ const PlaceItem = ({ id, description, image, title, address, creator, coordinate
                     <Map center={coordinates} zoom={5}></Map>
                 </div>
             </Modal>
+            <Modal
+                show={showConfirmModal}
+                header="Are you sure?" footerClass="place-item__modal-actions" footer={
+                    <Fragment>
+                        <Button onClick={cancelDeleteHandler} inverse>Cancel</Button>
+                        <Button onClick={confirmDeleteHandler}>Delete</Button>
+                    </Fragment>
+                }>
+                <p>Do you want to proceed and delete this place? Please not that is cannot be undone thereafter</p>
+            </Modal>
             <li className="place-item">
                 <Card className="place-item__content">
                     <div className="place-item__image">
@@ -39,8 +60,12 @@ const PlaceItem = ({ id, description, image, title, address, creator, coordinate
                     </div>
                     <div className="place-item__actions">
                         <Button inverse onClick={openMapHandler}>View on map</Button>
-                        <Button to={`/places/${id}`}>Edit</Button>
-                        <Button danger to={`/places/${id}`}>Delete</Button>
+                        {auth.isLoggedIn &&
+                            <Fragment>
+                                <Button to={`/places/${id}`}>Edit</Button>
+                                <Button onClick={showDeleteWarningHandler} danger>Delete</Button>
+                            </Fragment>
+                        }
                     </div>
                 </Card>
             </li>
